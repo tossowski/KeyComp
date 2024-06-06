@@ -22,6 +22,7 @@ from datasets import load_dataset
 from tqdm import tqdm
 from matplotlib import pyplot as plt
 import json
+import os
 from textwrap import wrap
 from segment_anything import SamAutomaticMaskGenerator, sam_model_registry
 import cv2
@@ -29,7 +30,7 @@ import cv2
 from scipy.ndimage.filters import gaussian_filter
 
 
-auth_token = "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"  # Replace with an auth token, which you can get from your huggingface account: Profile -> Settings -> Access Tokens -> New Token
+auth_token = os.environ["HF_TOKEN"] # Replace with an auth token, which you can get from your huggingface account: Profile -> Settings -> Access Tokens -> New Token
 winoground = load_dataset("facebook/winoground", use_auth_token=auth_token)["test"]
 
 def parse_args():

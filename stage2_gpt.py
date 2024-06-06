@@ -8,7 +8,7 @@ with open("API_KEY_2", "r") as f:
 
 
 openai.api_key = API_KEY
-auth_token = "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"  # Replace with an auth token, which you can get from your huggingface account: Profile -> Settings -> Access Tokens -> New Token
+auth_token = os.environ["HF_TOKEN"]  # Replace with an auth token, which you can get from your huggingface account: Profile -> Settings -> Access Tokens -> New Token
 winoground = load_dataset("facebook/winoground", use_auth_token=auth_token)["test"]
 
 def get_chatgpt_prediction(prompts):
